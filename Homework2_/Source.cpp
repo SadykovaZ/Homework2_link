@@ -29,8 +29,8 @@ int sum(int num1, int num2)
 //3
 double roundDigit(double number, int rnumber)
 {
-	double result = 0, f=0;
-	f = pow(10,rnumber);
+	double result = 0, f = 0;
+	f = pow(10, rnumber);
 	number *= f;
 	number = round(number);
 	number = number / f;
@@ -38,6 +38,79 @@ double roundDigit(double number, int rnumber)
 	return result;
 }
 
+//4
+void arrSort(int a[], int size, char choice, bool choice1)
+{
+	if (choice = "b" && choice1 == 1)
+	{
+		int temp = 0;
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = i + 1; j < size; j++)
+			{
+				if (a[i] > a[j])
+				{
+					temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+				}
+			}
+		}
+
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice = "b" && choice1 == 0)
+	{
+		int temp = 0;
+		for (int i = 1; i < size; i++)
+		{
+			for (int j = 0; j < size - i; j++)
+			{
+				if (a[j] < a[j + 1])
+				{
+					temp = a[j];
+					a[j] = a[j + 1];
+					a[j + 1] = temp;
+				}
+			}
+		}
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice = "c" && choice1 == 1)
+	{
+
+	}
+
+
+}
+
+//5
+void countNum(int number, int &count, double &Eper)
+{
+	int countEven = 0;
+
+	while (number > 0)
+	{
+		if ((number % 10) % 2 == 0)
+		{
+			countEven++;
+		}
+		number /= 10;
+		count++;
+	}
+
+	cout << "Количество четных цифр: " << countEven << endl; //для удобства добавила
+
+	Eper = (double)countEven / count;
+}
 //6
 int arr_average(int a[], int size)
 {
@@ -45,10 +118,10 @@ int arr_average(int a[], int size)
 	int sum = 0;
 	for (int i = 0; i < size; i++)
 	{
-		sum += a[i];		
+		sum += a[i];
 	}
-	
-	average =sum/size;
+
+	average = sum / size;
 
 	return average;
 }
@@ -59,10 +132,10 @@ double arr_average(double a[], int size)
 	double sum = 0;
 	for (int i = 0; i < size; i++)
 	{
-		sum += a[i];		
+		sum += a[i];
 	}
-	
-	average =sum/size;
+
+	average = sum / size;
 
 	return average;
 }
@@ -70,7 +143,7 @@ double arr_average(double a[], int size)
 int main()
 {
 	setlocale(LC_ALL, "Rus");
-	
+
 
 	int n = 0;
 start:
@@ -112,19 +185,43 @@ start:
 		cout << "Результат округления: " << roundDigit(x, y) << endl;
 	}
 
-	else if (n==4)
+	else if (n == 4)
 	{
-		cout << "Напишите функцию, которая принимает массив, количество элементов, тип сортировки (пузырьком, выбором и т.д. - строка) и порядок сортировки (по убыванию, по возрастанию – логическая переменная). Функция сортирует массив. Реализовать перегрузки для целых и вещественных чисел." << endl;
+		cout << "4.Напишите функцию, которая принимает массив, количество элементов, тип сортировки (пузырьком, выбором и т.д. - строка) и порядок сортировки (по убыванию, по возрастанию – логическая переменная). Функция сортирует массив. Реализовать перегрузки для целых и вещественных чисел." << endl;
+		int a[6] = { 1,2,6,8,4,1 };
+		char c = 0;
+		bool c1 = 0;
+		cout << "Введите тип сортировки (b - методом пузырька): ";
+		cin >> c;
+		cout << "Введите 1 - по возрастанию или 0 - по убыванию: ";
+		cin >> c1;
+
+		arrSort(a, 6, c, c1);
 
 
 
 	}
 
-	else if (n==6)
+	else if (n == 5)
+	{
+		cout << "Напишите функцию, которая принимает целое число и возвращает количество цифр в числе и процент четных цифр." << endl;
+		int n = 0, c = 0;
+		double p = 0;
+
+		cout << "Введите целое число: ";
+		cin >> n;
+
+		countNum(n, c, p);
+		cout << "Количество цифр = " << c << endl;
+		cout << "Процент четных цифр = " << p << "%" << endl;
+
+	}
+
+	else if (n == 6)
 	{
 		cout << "Напишите функцию, которая принимает массив и количество элементов и возвращает среднее арифметическое всех элементов массива. Реализуйте перегрузку для целых и вещественных чисел." << endl;
-		
-		int a[6] = {5,6,8,9,10,15};
+
+		int a[6] = { 5,6,8,9,10,15 };
 		double b[6] = { 5.6,3.8,4.6,8.2,7.8,5.7 };
 
 		cout << "Среднее арифметическое всех элементов массива a = " << arr_average(a, 6) << endl;
