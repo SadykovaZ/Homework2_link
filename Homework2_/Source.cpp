@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//#1
+//#1 
 int power(int number, int powNum)
 {
 	int result = 0;
