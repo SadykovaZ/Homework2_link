@@ -5,7 +5,8 @@
 
 using namespace std;
 
-//#1 
+// 1.Написать функцию, которая принимает два параметра: основание степени и показатель степени, 
+//  и вычисляет степень числа на основе полученных данных.
 int power(int number, int powNum)
 {
 	int result = 0;
@@ -14,7 +15,7 @@ int power(int number, int powNum)
 	return result;
 }
 
-//2
+//2. Написать функцию, которая получает в качестве параметров 2 целых числа и возвращает сумму чисел из диапазона между ними
 int sum(int num1, int num2)
 {
 	int sum = 0;
@@ -26,7 +27,7 @@ int sum(int num1, int num2)
 	return sum;
 }
 
-//3
+//3. Написать функцию для округления заданного числа с заданной точностью.
 double roundDigit(double number, int rnumber)
 {
 	double result = 0, f = 0;
@@ -38,7 +39,7 @@ double roundDigit(double number, int rnumber)
 	return result;
 }
 
-//4
+//4 
 void arrSort(int a[], int size, char choice, bool choice1)
 {
 	if (choice = "b" && choice1 == 1)
@@ -84,17 +85,233 @@ void arrSort(int a[], int size, char choice, bool choice1)
 		}
 		cout << endl;
 	}
+
 	else if (choice = "c" && choice1 == 1)
 	{
-
+		int min_index;
+		for (int i = 0; i < size - 1; ++i)
+		{
+			min_index = i;
+			for (int j = i + 1; j < size; ++j)
+			{
+				if (a[min_index] > a[j])
+				{
+					min_index = j;
+				}
+			}
+			if (i != min_index)
+			{
+				swap(a[i], a[min_index]);
+			}
+		}
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
 	}
+	else if (choice = "c" && choice1 == 0)
+	{
+		int max_index;
+		for (int i = 0; i < size - 1; ++i)
+		{
+			max_index = i;
+			for (int j = i + 1; j < size; ++j)
+			{
+				if (a[max_index] < a[j])
+				{
+					max_index = j;
+				}
+			}
+			if (i != max_index)
+			{
+				swap(a[i], a[max_index]);
+			}
+		}
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice = "v" && choice1 == 1)
+	{
+		int key;
+		int i;
+		for (int j = 1; j < size; ++j) {
+			key = a[j];
+			i = j - 1;
+			while (a[j] > key&&i >= 0) {
+				a[i + 1] = a[j];
+				--i;
+			}
+			a[i + 1] = key;
+		}
 
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice = "v" && choice1 == 0)
+	{
+		int key;
+		int i;
+		for (int j = 1; j < size; ++j) {
+			key = a[j];
+			i = j - 1;
+			while (a[j] <= key&&i >= 0) {
+				a[i + 1] = a[j];
+				--i;
+			}
+			a[i + 1] = key;
+		}
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+}
+void arrSort(double a[], int size, char choice, bool choice1)
+{
+	if (choice = "b" && choice1 == 1)
+	{
+		double temp = 0;
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = i + 1; j < size; j++)
+			{
+				if (a[i] > a[j])
+				{
+					temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+				}
+			}
+		}
 
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice = "b" && choice1 == 0)
+	{
+		double temp = 0;
+		for (int i = 1; i < size; i++)
+		{
+			for (int j = 0; j < size - i; j++)
+			{
+				if (a[j] < a[j + 1])
+				{
+					temp = a[j];
+					a[j] = a[j + 1];
+					a[j + 1] = temp;
+				}
+			}
+		}
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice = "c" && choice1 == 1)
+	{
+		int min_index;
+		for (int i = 0; i < size - 1; ++i)
+		{
+			min_index = i;
+			for (int j = i + 1; j < size; ++j)
+			{
+				if (a[min_index] > a[j])
+				{
+					min_index = j;
+				}
+			}
+			if (i != min_index)
+			{
+				swap(a[i], a[min_index]);
+			}
+		}
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice = "c" && choice1 == 0)
+	{
+		int max_index;
+		for (int i = 0; i < size - 1; ++i)
+		{
+			max_index = i;
+			for (int j = i + 1; j < size; ++j)
+			{
+				if (a[max_index] < a[j])
+				{
+					max_index = j;
+				}
+			}
+			if (i != max_index)
+			{
+				swap(a[i], a[max_index]);
+			}
+		}
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice = "v" && choice1 == 1)
+	{
+		double key;
+		int i;
+		for (int j = 1; j < size; ++j) {
+			key = a[j];
+			i = j - 1;
+			while (a[j] > key&&i >= 0) {
+				a[i + 1] = a[j];
+				--i;
+			}
+			a[i + 1] = key;
+		}
+
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice = "v" && choice1 == 0)
+	{
+		double key;
+		int i;
+		for (int j = 1; j < size; ++j) {
+			key = a[j];
+			i = j - 1;
+			while (a[j] <= key&&i >= 0) {
+				a[i + 1] = a[j];
+				--i;
+			}
+			a[i + 1] = key;
+		}
+		for (int i = 0; i < size; i++)
+		{
+			cout << a[i] << " ";
+		}
+		cout << endl;
+	}
 }
 
 //5
 void countNum(int number, int &count, double &Eper)
 {
+
 	int countEven = 0;
 
 	while (number > 0)
@@ -189,17 +406,16 @@ start:
 	{
 		cout << "4.Напишите функцию, которая принимает массив, количество элементов, тип сортировки (пузырьком, выбором и т.д. - строка) и порядок сортировки (по убыванию, по возрастанию – логическая переменная). Функция сортирует массив. Реализовать перегрузки для целых и вещественных чисел." << endl;
 		int a[6] = { 1,2,6,8,4,1 };
+		double b[6] = { 15.9,16.5,20.8,5.8,9.5,7.6 };
 		char c = 0;
 		bool c1 = 0;
-		cout << "Введите тип сортировки (b - методом пузырька): ";
+		cout << "Введите тип сортировки (b - методом пузырька, c - метод выбора , v - метод вставками): ";
 		cin >> c;
 		cout << "Введите 1 - по возрастанию или 0 - по убыванию: ";
 		cin >> c1;
 
 		arrSort(a, 6, c, c1);
-
-
-
+		arrSort(b, 6, c, c1);
 	}
 
 	else if (n == 5)
